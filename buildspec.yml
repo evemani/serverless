@@ -3,7 +3,8 @@ phases:
   install:
     commands:
       - pwd 
-      - cd api/CICD
+      - cd api
+      - cd CICD
       - pwd
       - ls -lrth
       - mvn clean install
