@@ -4,6 +4,7 @@ phases:
     commands:
       - pwd 
       - cd api
+      - pwd
       - cd CICD
       - pwd
       - ls -lrth
