@@ -3,7 +3,8 @@ phases:
   install:
     commands:
       - pwd 
-      - cd api
+      - ls -lrth
+      - api
       - pwd
       - cd CICD
       - pwd
