@@ -4,6 +4,8 @@ phases:
     commands:
       - pwd 
       - cd api/CICD
+      - pwd
+      - ls -lrth
       - mvn clean install
       - cd ../..
       #- put UI build command
