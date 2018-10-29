@@ -6,6 +6,9 @@ phases:
       - sudo apt-get -y upgrade
       - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
       - sudo apt-get install -y nodejs
+      - cd serverless
+      - pwd
+      - ls -lrth 
       - npm install -g serverless-s3-sync
       - npm install -g serverless-cloudwatch-dashboard
       - npm install -g serverless
