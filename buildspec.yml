@@ -7,7 +7,7 @@ phases:
       - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
       - sudo apt-get install -y nodejs
       - npm install -g serverless-s3-sync
-      - serverless-cloudwatch-dashboard
+      - npm install -g serverless-cloudwatch-dashboard
       - npm install -g serverless
   build:
     commands:
