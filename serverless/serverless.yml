@@ -1,0 +1,117 @@
+
+
+
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: serverlessService # NOTE: update this with your service name
+
+plugins:
+  - serverless-s3-sync 
+  - serverless-cloudwatch-dashboard
+    
+custom:
+  myStageVariable:
+    s3bucket:
+      dev: "dev-poc-cicd"
+      stage: "stage-poc-cicd"
+  siteName: "${self:custom.myStageVariable.s3bucket.${self:provider.stage}}"  
+  s3Sync:
+    - bucketName: ${self:custom.siteName}
+      localDir: ../ui  
+  serverless-cloudwatch-dashboard:
+     lambda:
+       metrics:
+         - Invocations        
+      
+package:
+   artifact: ../api/CICD/target/demo-1.0.0.jar     
+   #artifact: demo.jar  
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+# frameworkVersion: "=X.X.X"
+
+provider: # all these parameters are set for the functions in the *.yaml file
+  name: aws
+  runtime: java8
+  region: ap-southeast-2
+  memorySize: 1024
+  timeout: 60
+  stage: ${opt:stage, 'dev'}
+  stackName: ${self:provider.stage}-${opt:stackName, 'poc-cicd'}
+  originPath: /${self:provider.stage}
+  logRetentionInDays: 1  
+
+       
+functions:
+  PostDemoFunction:
+    handler: com.lambda.DemoHandler
+    name: ${self:provider.stage}_PostDemoLambda
+    description: Get truck location
+    events: 
+      - http:
+          path: /demo
+          method: post
+          cors: false
+          private: false
+  GetDemoFunction:
+    handler: com.lambda.DemoHandler
+    name: ${self:provider.stage}_GetDemoLambda
+    description: Get car details
+    events: 
+      - http:
+          path: /demo
+          method: get
+          cors: false
+          private: false          
+          
+resources: 
+  Resources:
+#Name of the APIGateway in AWS {Forcefully overriding}
+    ApiGatewayRestApi:
+      Type: AWS::ApiGateway::RestApi
+      Properties:
+        Name: ${self:provider.stage}_CICD_SERVICES
+        EndpointConfiguration:
+          Types:
+          - REGIONAL         
+
+#UI Bucket            
+    S3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        AccessControl: PublicRead
+        WebsiteConfiguration:
+          IndexDocument: index.html
+          ErrorDocument: index.html
+        BucketName: ${self:custom.siteName}
+      #BucketName: track-my-patrol.racv.com.au 
+    BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        PolicyDocument:
+          Statement:
+            - Sid: PublicReadForGetBucketObjects
+              Effect: Allow
+              Principal: '*'
+              Action: s3:GetObject
+              Resource: 
+                Fn::Join: 
+                  - ""
+                  - - "arn:aws:s3:::"
+                    -  Ref: "S3Bucket"
+                    - "/*"
+            #Resource: !Sub arn:aws:s3:::tmp-ui/*
+        Bucket: 
+          Ref: "S3Bucket"          
+  
