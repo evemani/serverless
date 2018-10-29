@@ -2,13 +2,16 @@ version: 0.1
 phases:
   install:
     commands:
-      - npm install
+      - sudo apt-get update
+      - sudo apt-get -y upgrade
+      - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+      - sudo apt-get install -y nodejs
       - npm install -g serverless-s3-sync
       - serverless-cloudwatch-dashboard
       - npm install -g serverless
   build:
     commands:
-      - serverless deploy --stage dev | tee deploy.out
+      - sererless/serverless deploy --stage dev | tee deploy.out
 #11  post_build:
  #   commands:
  #     - . ./test.sh
