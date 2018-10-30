@@ -4,6 +4,10 @@ phases:
     commands:
       - printenv
       - sudo apt-get update
+      - node -v 
+      #delete up
+      - npm -v
+      #delete up
       - apt-get install xz-utils
       #- sudo apt-get -y upgrade
       - cd /tmp
@@ -14,8 +18,14 @@ phases:
       - cd $OLDPWD
       - ls -lrth
       - export PATH=$PATH:/usr/local/nodejs/bin
-      - npm install serverless  
-      - printenv      
+      - npm install serverless
+      - node -v 
+      #delete up
+      - npm -v
+      #delete up      
+      - printenv 
+      - less /codebuild/output/tmp/script.sh
+       #delete up field      
       - serverless
       #delete above
       - less /codebuild/output/tmp/script.sh
