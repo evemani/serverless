@@ -2,11 +2,6 @@ version: 0.2
 phases:
   install:
     commands:
-#Delete
-      - pwd
-      - cd ..
-      - pwd
-      #Delete
       - sudo apt-get update
       - sudo apt-get -y upgrade
       - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
@@ -17,7 +12,8 @@ phases:
       - npm install -g serverless-s3-sync
       - npm install -g serverless-cloudwatch-dashboard
       - npm install -g serverless
-      - cd ../..
+      - cd ..
+      - cd ..
   build:
     commands:
       - pwd 
@@ -28,8 +24,10 @@ phases:
       - pwd
       - ls -lrth
       - mvn clean install
-      - cd ../..
+      - cd ..
+      - cd ..
       #- put UI build command
+      - ls -lrth
       - cd serverless
       - serverless deploy --stage dev | tee deploy.out
 #11  post_build:
