@@ -9,9 +9,9 @@ phases:
       - cd serverless
       - pwd
       - ls -lrth 
+      - npm install -g serverless
       - npm install -g serverless-s3-sync
       - npm install -g serverless-cloudwatch-dashboard
-      - npm install -g serverless
       - cd ..
   build:
     commands:
@@ -29,6 +29,13 @@ phases:
       #- put UI build command
       - ls -lrth
       - cd serverless
+      #Start Delete later as only for test
+      - ls -lrth
+      - cd node_modules
+      - ls -lrth
+      - cd ..
+      - ls -lrth
+      #End Delete later section
       - serverless deploy --stage dev | tee deploy.out
 #11  post_build:
  #   commands:
