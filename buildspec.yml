@@ -16,6 +16,15 @@ phases:
       - mkdir -p /usr/local/nodejs
       - mv node-v8.12.0-linux-x64/* /usr/local/nodejs
       - ls -lrth
+      #delete up
+      - cd /usr/local/nodejs
+      #delete up
+      - ls -lrth
+      #delete up
+      - cd bin
+      #delete up
+      - ls -lrth
+      #delete up
       - cd $OLDPWD
       - ls -lrth
       - export PATH=$PATH:/usr/local/nodejs/bin
