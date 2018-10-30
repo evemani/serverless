@@ -2,13 +2,12 @@ version: 0.2
 phases:
   install:
     commands:
-      - npm install serverless    
       - printenv
       - less /codebuild/output/tmp/dir.txt
       # delete up
       - less /codebuild/output/tmp/env.sh
       # delete
-      - sudo apt-get update
+      #- sudo apt-get update
       - apt-get install xz-utils
       #- sudo apt-get -y upgrade
       - cd /tmp
@@ -32,6 +31,8 @@ phases:
       - ls -lrth
       - export PATH=$PATH:/usr/local/nodejs/bin
       - npm install serverless
+      - ls -lrth
+      - serverless
       - node -v 
       #delete up
       - npm -v
