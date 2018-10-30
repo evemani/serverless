@@ -37,7 +37,8 @@ phases:
       - cd ..
       - ls -lrth
       #End Delete later section
-      - serverless deploy --stage dev | tee deploy.out
+      - serverless
+      - serverless deploy --stage dev 
 #11  post_build:
  #   commands:
  #     - . ./test.sh
