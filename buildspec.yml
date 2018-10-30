@@ -29,6 +29,7 @@ phases:
       #delete up
       - cd $OLDPWD
       - ls -lrth
+      - pwd
       - export PATH=$PATH:/usr/local/nodejs/bin
       - npm install serverless
       - ls -lrth
