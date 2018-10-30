@@ -2,73 +2,29 @@ version: 0.2
 phases:
   install:
     commands:
-      - printenv
-      - less /codebuild/output/tmp/dir.txt
-      # delete up
-      - less /codebuild/output/tmp/env.sh
-      # delete
       #- sudo apt-get update
       - apt-get install xz-utils
       #- sudo apt-get -y upgrade
       - cd /tmp
-      - pwd
-      # delete up
       - wget https://nodejs.org/dist/v8.12.0/node-v8.12.0-linux-x64.tar.xz
       - tar -xf node-v8.12.0-linux-x64.tar.xz
       - mkdir -p /usr/local/nodejs
       - mv node-v8.12.0-linux-x64/* /usr/local/nodejs
-      - ls -lrth
-      #delete up
-      - cd /usr/local/nodejs
-      #delete up
-      - ls -lrth
-      #delete up
-      - cd bin
-      #delete up
-      - ls -lrth
-      #delete up
       - cd $CODEBUILD_SRC_DIR
-      - ls -lrth
       - pwd
       - export PATH=$PATH:/usr/local/nodejs/bin
-      - npm install serverless -g
-      - ls -lrth
-      - npm ls -g
-      - serverless
-      - node -v 
-      #delete up
-      - npm -v
-      #delete up      
-      - printenv 
-      - less /codebuild/output/tmp/script.sh
-       #delete up field      
-      - serverless
-      #delete above
-      - less /codebuild/output/tmp/script.sh
-       #delete up field
-      - serverless 
-      # delete up field      
+      - npm install serverless -g              
       - cd serverless
-      - pwd
-      - ls -lrth 
-      #delete up field
-      - less /codebuild/output/tmp/script.sh
-       #delete up field
-      - serverless 
-      # delete up field
+      - pwd && ls -lrth
       - npm install serverless-s3-sync
       - npm install serverless-cloudwatch-dashboard
       - ls -lrth
       - cd ..
   build:
     commands:
-      - pwd 
-      - ls -lrth
-      - cd api
-      - pwd
-      - cd CICD
-      - pwd
-      - ls -lrth
+      - pwd && ls -lrth
+      - cd api && pwd
+      - cd CICD && ls -lrth
       - mvn clean install
       - cd ..
       - cd ..
@@ -76,13 +32,6 @@ phases:
       #- put UI build command
       - ls -lrth
       - cd serverless
-      #Start Delete later as only for test
-      - ls -lrth
-      - cd node_modules
-      - ls -lrth
-      - cd ..
-      - ls -lrth
-      #End Delete later section
       - serverless deploy --stage dev 
 #11  post_build:
  #   commands:
