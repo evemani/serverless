@@ -2,6 +2,11 @@ version: 0.2
 phases:
   install:
     commands:
+#Delete
+      - pwd
+      - cd ..
+      - pwd
+      #Delete
       - sudo apt-get update
       - sudo apt-get -y upgrade
       - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
