@@ -3,6 +3,10 @@ phases:
   install:
     commands:
       - printenv
+      - less /codebuild/output/tmp/dir.txt
+      # delete up
+      - less /codebuild/output/tmp/env.sh
+      # delete
       - sudo apt-get update
       - apt-get install xz-utils
       #- sudo apt-get -y upgrade
