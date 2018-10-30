@@ -4,10 +4,6 @@ phases:
     commands:
       - printenv
       - sudo apt-get update
-      - node -v 
-      #delete up
-      - npm -v
-      #delete up
       - apt-get install xz-utils
       #- sudo apt-get -y upgrade
       - cd /tmp
