@@ -16,8 +16,8 @@ phases:
       - npm install serverless -g              
       - cd serverless
       - pwd && ls -lrth
-      - npm install serverless-s3-sync
-      - npm install serverless-cloudwatch-dashboard
+      - npm install serverless-s3-sync -g
+      - npm install serverless-cloudwatch-dashboard -g
       - ls -lrth
       - cd ..
   build:
