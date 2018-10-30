@@ -4,13 +4,19 @@ phases:
     commands:
       - printenv
       - sudo apt-get update
-      - sudo apt-get -y upgrade
-      - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-      - sudo apt-get install -y nodejs
+      #- sudo apt-get -y upgrade
+      - mkdir /tmp
+      - wget https://nodejs.org/dist/v8.12.0/node-v8.12.0-linux-x64.tar.xz
+      - tar xvfz node-v8.12.0-linux-x64.tar.xz
+      - mkdir -p /usr/local/nodejs
+      - mv node-v8.12.0-linux-x64/* /usr/local/nodejs
+      - cd $OLDPWD
       - ls -lrth
-      - export PATH=$PATH:nodejs/bin
+      - export PATH=$PATH:/usr/local/nodejs/bin
       - npm install serverless  
       - printenv      
+      - serverless
+      #delete above
       - less /codebuild/output/tmp/script.sh
        #delete up field
       - serverless 
