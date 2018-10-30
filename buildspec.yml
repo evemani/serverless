@@ -4,10 +4,11 @@ phases:
     commands:
       - printenv
       - sudo apt-get update
+      - apt-get install xz-utils
       #- sudo apt-get -y upgrade
       - cd /tmp
       - wget https://nodejs.org/dist/v8.12.0/node-v8.12.0-linux-x64.tar.xz
-      - tar xvfz node-v8.12.0-linux-x64.tar.xz
+      - tar -xf node-v8.12.0-linux-x64.tar.xz
       - mkdir -p /usr/local/nodejs
       - mv node-v8.12.0-linux-x64/* /usr/local/nodejs
       - cd $OLDPWD
