@@ -33,6 +33,7 @@ phases:
       - export PATH=$PATH:/usr/local/nodejs/bin
       - npm install serverless
       - ls -lrth
+      - npm ls -g
       - serverless
       - node -v 
       #delete up
