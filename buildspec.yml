@@ -7,7 +7,6 @@ phases:
       - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
       - sudo apt-get install -y nodejs
       - cd serverless
-      - cd serverless
       - pwd
       - ls -lrth 
       - npm install -g serverless-s3-sync
@@ -26,6 +25,7 @@ phases:
       - mvn clean install
       - cd ..
       - cd ..
+      - pwd
       #- put UI build command
       - ls -lrth
       - cd serverless
