@@ -16,8 +16,7 @@ phases:
       - npm install serverless -g              
       - cd serverless
       - pwd && ls -lrth
-      - npm install serverless-s3-sync
-      - npm install serverless-cloudwatch-dashboard
+      - npm install -g newman
       - ls -lrth
       - cd ..
   build:
@@ -33,6 +32,8 @@ phases:
       - ls -lrth
       - cd serverless
       - serverless deploy --stage dev 
-#11  post_build:
- #   commands:
- #     - . ./test.sh
+      - cd ..
+  post_build:
+    commands:
+      - ls -lrth
+      - newman run TMP.postman_collection.json
