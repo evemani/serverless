@@ -1,0 +1,199 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TMP",
+		"_postman_id": "6b70c226-d1d0-e56d-dabd-e9a5645a0fe0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "dev",
+			"description": "",
+			"item": [
+				{
+					"name": "Dev-Details",
+					"request": {
+						"url": "https://d2wzqw0iuj3zkk.cloudfront.net/details",
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "frE4ZP1J6KaR3VqojnSXX81FBSRArH0V3ZOGtHmp",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Host",
+								"value": "d2wzqw0iuj3zkk.cloudfront.net",
+								"description": ""
+							},
+							{
+								"key": "Content-Length",
+								"value": 331,
+								"description": ""
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20181003T111517Z",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "AWS4-HMAC-SHA256 Credential=ASIATW6OYFBCIDGGAUX/20181003/ap-southeast-2/details/aws4_request, SignedHeaders=content-length;content-type;host;x-amz-date;x-api-key, Signature=f856d65b915a36c38f90db2769f7f9d8f52071c9fcc2c40d5051658804285f89",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key1\": \"1\",    \n    \"key2\": \"2\",    \n    \"key3\": null,    \n    \"name\": null,    \n    \"type\": \"BATT\",    \n    \"latitude\": -37.8156,\n    \"longitude\": 144.95978,\n    \"accuracy\": null,    \n    \"validity\": null,    \n    \"reportedTimestamp\": \"2018-07-19T14:15:50.5543849+10:00\",\n    \"message\": null,    \n    \"status\": \"EN-ROUTE\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Dev-Location",
+					"request": {
+						"url": "https://d2wzqw0iuj3zkk.cloudfront.net/location",
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "frE4ZP1J6KaR3VqojnSXX81FBSRArH0V3ZOGtHmp",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key1\": \"1\",    \n    \"key2\": \"2\",    \n    \"key3\": null,    \n    \"name\": null,    \n    \"type\": \"BATT\",    \n    \"latitude\": -37.8156,\n    \"longitude\": 144.95978,\n    \"accuracy\": null,    \n    \"validity\": null,    \n    \"reportedTimestamp\": \"2018-07-19T14:15:50.5543849+10:00\",\n    \"message\": null,    \n    \"status\": \"EN-ROUTE\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Dev-GetDetails",
+					"request": {
+						"url": {
+							"raw": "https://d2wzqw0iuj3zkk.cloudfront.net/getdetails?key1=1",
+							"protocol": "https",
+							"host": [
+								"d2wzqw0iuj3zkk",
+								"cloudfront",
+								"net"
+							],
+							"path": [
+								"getdetails"
+							],
+							"query": [
+								{
+									"key": "key1",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "edWply7N2x5Rtnr4CHUhD796KcJArsbG9Br6XlqI",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Host",
+								"value": "d2wzqw0iuj3zkk.cloudfront.net",
+								"description": ""
+							},
+							{
+								"key": "X-Amz-Date",
+								"value": "20181003T105105Z",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "AWS4-HMAC-SHA256 Credential=ASIATW6OYFBCIDGGAUXV/20181003/ap-southeast-2/getdetails/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-api-key, Signature=1a1aff9057187f61bd5e9336bb47509c528fae67c6c61222b7388e57a810e8f1",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key1\": \"59777689\",    \n    \"key2\": \"3335\",    \n    \"key3\": null,    \n    \"name\": null,    \n    \"type\": \"BATT\",    \n    \"latitude\": -37.8156,\n    \"longitude\": 144.95978,\n    \"accuracy\": null,    \n    \"validity\": null,    \n    \"reportedTimestamp\": \"2018-07-19T14:15:50.5543849+10:00\",\n    \"message\": null,    \n    \"status\": \"EN-ROUTE\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Dev-GetLocation",
+					"request": {
+						"url": {
+							"raw": "https://d2wzqw0iuj3zkk.cloudfront.net/getlocations?key1=1&key2=2",
+							"protocol": "https",
+							"host": [
+								"d2wzqw0iuj3zkk",
+								"cloudfront",
+								"net"
+							],
+							"path": [
+								"getlocations"
+							],
+							"query": [
+								{
+									"key": "key1",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "key2",
+									"value": "2",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "edWply7N2x5Rtnr4CHUhD796KcJArsbG9Br6XlqI",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key1\": \"59777689\",    \n    \"key2\": \"3335\",    \n    \"key3\": null,    \n    \"name\": null,    \n    \"type\": \"BATT\",    \n    \"latitude\": -37.8156,\n    \"longitude\": 144.95978,\n    \"accuracy\": null,    \n    \"validity\": null,    \n    \"reportedTimestamp\": \"2018-07-19T14:15:50.5543849+10:00\",\n    \"message\": null,    \n    \"status\": \"EN-ROUTE\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
